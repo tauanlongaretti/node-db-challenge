@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
         res.status(201).json(project);
     })
     .catch(err => {
-        res.status(500).json({ message: 'Failed to create new resource' });
+        res.status(500).json({ message: 'Failed to create new project' });
     });
 });
 
@@ -25,6 +25,30 @@ router.get('/', (req, res) => {
     })
     .catch(err => {
         res.status(500).json({ message: 'Failed to get projects' });
+    });
+});
+
+// Adding resources
+router.post('/resources', (req, res) => {
+    const resourceData = req.body;
+
+    Projects.addResource(resourceData)
+    .then(resource => {
+        res.status(201).json(resource);
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Failed to create new resource' });
+    });
+});
+
+// Retrieving a list of resources
+router.get('/resources', (req, res) => {
+    Projects.findResources()
+    .then(resources => {
+        res.json(resources);
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Failed to get resources' });
     });
 });
 
