@@ -52,4 +52,28 @@ router.get('/resources', (req, res) => {
     });
 });
 
+// Adding tasks
+router.post('/tasks', (req, res) => {
+    const taskData = req.body;
+
+    Projects.addTask(taskData)
+    .then(task => {
+        res.status(201).json(task);
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Failed to create new task' });
+    });
+});
+
+// Retrieving a list of tasks
+router.get('/tasks', (req, res) => {
+    Projects.findTasks()
+    .then(tasks => {
+        res.json(tasks);
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Failed to get tasks' });
+    });
+});
+
 module.exports = router;
