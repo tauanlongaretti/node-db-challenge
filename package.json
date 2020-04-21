@@ -1,0 +1,29 @@
+{
+  "name": "db-challenge",
+  "version": "1.0.0",
+  "description": "sprint",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tauanlongaretti/node-db-challenge.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "Tauan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tauanlongaretti/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/tauanlongaretti/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.20.15",
+    "nodemon": "^2.0.3",
+    "sqlite3": "^4.1.1"
+  }
+}
